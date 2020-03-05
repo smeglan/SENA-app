@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-button routerLink="/login">Login</ion-button>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding">
+  <ion-item>
+    <ion-label position="stacked">
+      Email
+      <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">
+      Password
+      <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+  <ion-item-divider>
+    <ion-button size="medium" (click)="onRegister()">Register</ion-button>
+  </ion-item-divider>
+</ion-content>
