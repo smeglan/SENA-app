@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentMenu } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  components: ComponentMenu[] = [{
+    "icon": "menu",
+    "name": "Administrador",
+    "redirectTo": "/admin"
+  }];
   constructor() { }
 
   ngOnInit() {}

@@ -1,0 +1,7 @@
+[
+    {
+        "icon":"/",
+        "name":"Administrador",
+        "redirectTo":"/admin"
+    }
+]

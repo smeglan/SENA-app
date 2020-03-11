@@ -7,12 +7,12 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
+  
   constructor(private menu: MenuController) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  onClick(){
+  onClick() {
     this.menu.toggle();
   }
 }

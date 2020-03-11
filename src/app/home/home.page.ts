@@ -9,8 +9,10 @@ import { FirebaseService } from '../services/firebase.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage {
 
+  
   constructor(
     private authSvc: AuthService, 
     private router: Router, 

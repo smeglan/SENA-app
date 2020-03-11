@@ -10,3 +10,9 @@ export interface Course {
     requirements: string;
     type: string;
 }
+
+export interface ComponentMenu {
+    icon: string;
+    name: string;
+    redirectTo: string;
+}
