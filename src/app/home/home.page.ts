@@ -2,7 +2,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
-import { ApiFirebaseService } from '../services/api-firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +15,11 @@ export class HomePage {
     private authSvc: AuthService, 
     private router: Router, 
     private afAuth: AngularFireAuth,
-    private apiFirebaseService : ApiFirebaseService
+    private firebaseService : FirebaseService
   ) {}
 
   loadTestJson(){
-    this.apiFirebaseService.getData();
+    this.firebaseService.getData();
   }
 
   onLogout(){

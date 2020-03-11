@@ -1,13 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      <ion-icon size="medium" name="home"></ion-icon>
-      Home Page
-    </ion-title>
-  </ion-toolbar>
+  <app-header></app-header>
 </ion-header>
 <ion-content>
   <ion-button size="large" (click)="loadTestJson()">Cursos</ion-button>
   <ion-button size="large" (click)="onLogout()">LogOut</ion-button>
   <ion-button size="large" routerLink="/admin">Admin</ion-button>
 </ion-content>
+<app-menu></app-menu>
