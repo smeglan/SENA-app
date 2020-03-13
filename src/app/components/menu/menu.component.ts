@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ComponentMenu } from 'src/app/interfaces/interfaces';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -9,12 +11,25 @@ import { ComponentMenu } from 'src/app/interfaces/interfaces';
 export class MenuComponent implements OnInit {
 
   components: ComponentMenu[] = [{
-    "icon": "menu",
+    "icon": "home",
+    "name": "Principal",
+    "redirectTo": "/home"
+  },
+  {
+    "icon": "people",
     "name": "Administrador",
     "redirectTo": "/admin"
-  }];
-  constructor() { }
+  }
+  ];
 
-  ngOnInit() {}
+  constructor(private afAuth: AngularFireAuth, private router: Router) { }
 
+  ngOnInit() { }
+
+  onLogout(){
+    console.log('Logout!');
+    this.afAuth.auth.signOut();
+    this.router.navigateByUrl('/');
+    return;
+  }
 }

@@ -1,7 +1,7 @@
-import { AuthService } from './../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../shared/user.class';
+import { User } from '../../shared/user.class';
 
 @Component({
   selector: 'app-register',
