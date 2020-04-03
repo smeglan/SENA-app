@@ -1,4 +1,18 @@
-input {
+.stacked-text{
+    font-weight: bold;
+}
+
+.input {
+    border-bottom: solid 1px gray;
     margin-right: 6;
     margin-left: 6;
+}
+
+.rowLogin{
+    margin-top: 50px;
+}
+
+.rowRegister {
+    position: absolute;
+    bottom: 0;
 }

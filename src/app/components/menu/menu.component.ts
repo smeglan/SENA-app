@@ -27,7 +27,6 @@ export class MenuComponent implements OnInit {
   ngOnInit() { }
 
   onLogout(){
-    console.log('Logout!');
     this.afAuth.auth.signOut();
     this.router.navigateByUrl('/');
     return;

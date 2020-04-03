@@ -4,31 +4,33 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="padding">
-  <ion-card>
-    <ion-item>
-      <ion-label position="stacked">
-        Email
-      </ion-label>
-      <ion-input type="email" [(ngModel)]="user.email" class="input"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">
-        Password
-      </ion-label>
-      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-    </ion-item>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button size="medium" (click)="onLogin()">Login</ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-button fill=clear routerLink="/register">Register</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-
+  <ion-row>
+    <ion-col size="6" offset="3">
+      <ion-img src="assets/logos/logo-sena.png"></ion-img>
+    </ion-col>
+  </ion-row>
+  <ion-row class="rowLogin">
+    <ion-col size="10" offset="1">
+      <div>
+        <ion-label position="stacked" class="stacked-text">
+          Email
+        </ion-label>
+        <ion-input type="email" [(ngModel)]="user.email" class="input"></ion-input>
+        <ion-label position="stacked" class="stacked-text">
+          Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="user.password" class="input"></ion-input>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6" offset="3">
+      <ion-button (click)="onLogin()" expand="block">Login</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12" class="rowRegister">
+      <ion-button routerLink="/register" expand="full">Register</ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

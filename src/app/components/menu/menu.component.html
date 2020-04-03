@@ -1,19 +1,23 @@
 <ion-menu side="start" menuId="first" contentId="menuDrawer">
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Start Menu</ion-title>
+      <ion-title>SENA</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item *ngFor="let c of components" [routerLink]="c.redirectTo">
-        <ion-icon [name]="c.icon"></ion-icon>
-        <ion-label>{{c.name}}</ion-label>
-      </ion-item>
-      <ion-item (click)="onLogout()">
-        <ion-icon name="log-out"></ion-icon>
-        <ion-label>Cerrar sesión</ion-label>
-      </ion-item>
+      <ion-menu-toggle *ngFor="let c of components">
+        <ion-item [routerLink]="c.redirectTo">
+          <ion-icon slot="start" [name]="c.icon"></ion-icon>
+          <ion-label>{{c.name}}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="onLogout()">
+          <ion-icon slot="start" name="log-out"></ion-icon>
+          <ion-label>Cerrar sesión</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>

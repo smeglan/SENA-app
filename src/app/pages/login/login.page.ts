@@ -9,16 +9,19 @@ import { User } from '../../shared/user.class';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  user: User = new User();
-  constructor(private authSvc: AuthService, private router: Router) 
-  { 
+  user: User = new User(
+    "fran@gmail.com",
+    "12345678"
+  );
+  
+  constructor(private authSvc: AuthService, private router: Router) {
   }
 
   ngOnInit() {
   }
-  async onLogin(){
+  async onLogin() {
     const user = await this.authSvc.onLogin(this.user);
-    if (user){
+    if (user) {
       console.log('Success');
       this.router.navigateByUrl('/home');
     }

@@ -9,7 +9,7 @@ import { User } from '../../shared/user.class';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  user: User = new User();
+  user: User = new User("","");
   constructor(private authSvc: AuthService, private router: Router) { }
 
   ngOnInit() {
