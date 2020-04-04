@@ -4,9 +4,11 @@ import { MenuComponent } from './menu/menu.component';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
+import { TrainingProgramComponent } from './training-program/training-program.component';
+import { ProgramsComponent } from './programs/programs.component';
 
 @NgModule({
-  declarations: [MenuComponent, HeaderComponent],
+  declarations: [MenuComponent, HeaderComponent, TrainingProgramComponent, ProgramsComponent],
   imports: [
     IonicModule,
     CommonModule,
@@ -14,7 +16,9 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    TrainingProgramComponent,
+    ProgramsComponent
   ]
 })
 export class ComponentsModule { }

@@ -1,0 +1,23 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      {{course.name}}
+    </ion-card-title>
+    <ion-card-subtitle>
+      <span class="course-source-name">duración - {{course.duration}} meses</span>
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-img *ngIf="course.urlToImage" [src]="course.urlToImage"></ion-img>
+  <ion-card-content>
+    <ion-text>
+      <p>
+        {{course.description}}
+      </p>
+    </ion-text>
+    <ion-text color="medium">
+      <span>
+        {{course.type}}
+      </span>
+    </ion-text>
+  </ion-card-content>
+</ion-card>

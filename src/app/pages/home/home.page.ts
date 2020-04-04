@@ -1,7 +1,9 @@
+import { Course } from 'src/app/interfaces/interfaces';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FirebaseService } from '../../services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +12,17 @@ import { FirebaseService } from '../../services/firebase.service';
 })
 
 export class HomePage {
-
+  courses: Course[] = [];
   constructor(
     private authSvc: AuthService,    
-    private firebaseService : FirebaseService
-  ) {}
+    private firebaseService : FirebaseService,
+    private router: Router
+  ) {
+    this.courses = this.firebaseService.getDataCourses();
+  }
 
-  loadTestJson(){
-    this.firebaseService.getData();
+  openFilter(){
+    console.log("Filtro");
+    this.router.navigateByUrl('/filter');
   }
 }

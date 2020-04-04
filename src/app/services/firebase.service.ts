@@ -9,17 +9,18 @@ export class FirebaseService {
 
   constructor() { }
 
-  getData() {
+  getDataCourses() {
     firebase.auth().currentUser;
-    firebase.database().ref('/training_course/').once('value').then(function (result) {
-      let courses = [];
+    let courses: Course[] = [];
+    firebase.database().ref('/training_course/').once('value').then((result) => {
       const response = result.val()
       Object.keys(response).map((key) => {
         const course: Course = <Course>response[key];
         courses.push(course);
       });
-      console.log(courses);
       return courses;
     });
+    console.log(courses);
+    return courses;
   }
 }

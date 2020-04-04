@@ -15,6 +15,11 @@ const routes: Routes = [
     path: 'admin', loadChildren: './pages/admin/admin.module#AdminPageModule',
     canActivate: [AuthGuard]
   },
+  {
+    path: 'filter', loadChildren: './pages/filter/filter.module#FilterPageModule',
+    canActivate: [AuthGuard]
+  },
+
 ];
 
 @NgModule({

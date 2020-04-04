@@ -1,5 +1,10 @@
 <app-header></app-header>
 <ion-content>
-  <ion-card></ion-card>
+  <app-programs [courses]="courses"></app-programs>
 </ion-content>
+<ion-row >
+  <ion-col size="4" offset="4" class="containerFilter">
+    <ion-button (click)="openFilter()" style="--background: rgba(255,138,0,0.8)" expand="block"><ion-icon slot="start" name="search"></ion-icon >Filtro</ion-button>
+  </ion-col>
+</ion-row>
 <app-menu></app-menu>

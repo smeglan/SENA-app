@@ -8,6 +8,7 @@ export interface Course {
     duration: number;
     description: string;
     requirements: string;
+    urlToImage? : string;
     type: string;
 }
 

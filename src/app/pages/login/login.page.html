@@ -1,8 +1,3 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
 <ion-content class="padding">
   <ion-row>
     <ion-col size="6" offset="3">
@@ -25,12 +20,12 @@
   </ion-row>
   <ion-row>
     <ion-col size="6" offset="3">
-      <ion-button (click)="onLogin()" expand="block">Login</ion-button>
+      <ion-button (click)="onLogin()" expand="block" style="--background:#FF8E25">Iniciar sesión</ion-button>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col size="12" class="rowRegister">
-      <ion-button routerLink="/register" expand="full">Register</ion-button>
+      <ion-button routerLink="/register" style="--background: rgba(255,138,0,0.5); --color: black;" expand="full">Crear una cuenta</ion-button>
     </ion-col>
   </ion-row>
 </ion-content>
