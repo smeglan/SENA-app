@@ -12,17 +12,18 @@ import { Router } from '@angular/router';
 })
 
 export class HomePage {
+
   courses: Course[] = [];
   constructor(
-    private authSvc: AuthService,    
-    private firebaseService : FirebaseService,
+    private authSvc: AuthService,
+    private firebaseService: FirebaseService,
     private router: Router
   ) {
     this.courses = this.firebaseService.getDataCourses();
   }
 
-  openFilter(){
-    console.log("Filtro");
+  openFilter() {
+    console.log('Filtro');
     this.router.navigateByUrl('/filter');
   }
 }

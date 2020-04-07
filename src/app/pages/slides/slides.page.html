@@ -1,0 +1,18 @@
+<ion-content>
+  <ion-slides>
+    <ion-slide *ngFor="let avatar of avatars">
+        <ion-img class="pick-avatar" 
+                src="/assets/avatars/{{ avatar.img }}"></ion-img>
+    </ion-slide>   
+    <ion-slide>
+      <ion-row class="ion-justify-content-center">
+          <ion-img class="pick-avatar" 
+                src="/assets/avatars/slides2sena.png"></ion-img>
+               
+                  <h4>Servicio Nacional De Aprendizaje</h4>
+                  <ion-button routerLink="/home"> Comenzar </ion-button>
+       </ion-row>
+      
+    </ion-slide> 
+  </ion-slides>
+</ion-content>

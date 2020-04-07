@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   components: ComponentMenu[] = [{
-    "icon": "home",
-    "name": "Principal",
-    "redirectTo": "/home"
+    icon: 'home',
+    name: 'Principal',
+    redirectTo: '/home'
   },
   {
-    "icon": "people",
-    "name": "Administrador",
-    "redirectTo": "/admin"
+    icon: 'people',
+    name: 'Administrador',
+    redirectTo : '/admin'
   }
   ];
 
@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() { }
 
-  onLogout(){
+  onLogout() {
     this.afAuth.auth.signOut();
     this.router.navigateByUrl('/');
     return;

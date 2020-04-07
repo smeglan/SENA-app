@@ -10,10 +10,10 @@ import { User } from '../../shared/user.class';
 })
 export class LoginPage implements OnInit {
   user: User = new User(
-    "fran@gmail.com",
-    "12345678"
+    'fran@gmail.com',
+    '12345678'
   );
-  
+
   constructor(private authSvc: AuthService, private router: Router) {
   }
 
@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     const user = await this.authSvc.onLogin(this.user);
     if (user) {
       console.log('Success');
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/slides');
     }
   }
 

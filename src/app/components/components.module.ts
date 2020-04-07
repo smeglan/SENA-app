@@ -8,7 +8,7 @@ import { TrainingProgramComponent } from './training-program/training-program.co
 import { ProgramsComponent } from './programs/programs.component';
 
 @NgModule({
-  declarations: [MenuComponent, HeaderComponent, TrainingProgramComponent, ProgramsComponent],
+  declarations: [MenuComponent, HeaderComponent, TrainingProgramComponent, ProgramsComponent ],
   imports: [
     IonicModule,
     CommonModule,
