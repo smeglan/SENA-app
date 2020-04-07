@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
     "fran@gmail.com",
     "12345678"
   );
-  
+
   constructor(private authSvc: AuthService, private router: Router) {
   }
 
