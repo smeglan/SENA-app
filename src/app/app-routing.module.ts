@@ -19,6 +19,8 @@ const routes: Routes = [
     path: 'filter', loadChildren: './pages/filter/filter.module#FilterPageModule',
     canActivate: [AuthGuard]
   },
+  { path: 'slides', loadChildren: './pages/slides/slides.module#SlidesPageModule' },
+
 
 ];
 
