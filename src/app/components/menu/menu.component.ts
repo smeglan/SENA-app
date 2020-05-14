@@ -13,11 +13,11 @@ export class MenuComponent implements OnInit {
   components: ComponentMenu[] = [{
     "icon": "home",
     "name": "Principal",
-    "redirectTo": "/home"
+    "redirectTo": "/ofertas"
   },
   {
     "icon": "people",
-    "name": "Administrador",
+    "name": "Codigo QR",
     "redirectTo": "/admin"
   }
   ];
@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() { }
 
-  onLogout(){
+  onLogout() {
     this.afAuth.auth.signOut();
     this.router.navigateByUrl('/');
     return;

@@ -9,6 +9,6 @@ export class ProgramasService {
 
   constructor() { }
   getTrainingCourses() {
-    
+
   }
 }

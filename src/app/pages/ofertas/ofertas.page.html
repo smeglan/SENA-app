@@ -1,0 +1,56 @@
+<app-header titulo="Ofertas"></app-header>
+  
+<ion-toolbar>
+      <ion-segment (ionChange)="segmentChanged($event)" scrollable >
+        <ion-segment-button value="Titulada">
+          <ion-label>Titulada</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Complementaria">
+          <ion-label>Complementaria</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+  
+  <ion-searchbar animated (ionChange)="buscar($event)"></ion-searchbar>
+
+  
+</ion-toolbar>
+  
+<ion-content fullscreen class="ion-padding">
+
+    <ion-list #lista >
+        <ion-item-sliding *ngFor="let dato of (datos | async) | filtroSegmento: tipo:'tipo' | filtro: textoBuscar " >
+          
+          <ion-item >
+      
+            <ion-avatar slot="start">
+                        <img src="{{dato.img}}">
+            </ion-avatar>   
+            <ion-label>
+              
+              <h3>{{ dato.title }}</h3>
+              <p>
+                {{ dato.descripcion}}
+              </p>
+            </ion-label>
+      
+          </ion-item>
+      
+      
+          <ion-item-options side="end"   >
+                <ion-item-option color="secondary" (click)="share( dato.url)">
+                        <ion-icon slot="icon-only" name="share"></ion-icon>
+                </ion-item-option>
+
+                 <ion-item-option  (click)="favorite(dato.title,dato.descripcion,dato.img,dato.id, dato.url)">
+                    <ion-icon slot="icon-only" name="heart"></ion-icon>
+                  </ion-item-option>
+              
+                
+          </ion-item-options>
+
+        </ion-item-sliding>
+      </ion-list>
+
+      
+</ion-content>
+<app-menu></app-menu>

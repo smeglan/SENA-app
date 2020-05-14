@@ -20,6 +20,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: 'slides', loadChildren: './pages/slides/slides.module#SlidesPageModule' },
+  { path: 'ofertas',
+    loadChildren: './pages/ofertas/ofertas.module#OfertasPageModule'
+  },
+
 
 
 ];

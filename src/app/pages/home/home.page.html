@@ -1,10 +1,24 @@
 <app-header></app-header>
+<ion-toolbar>
+  <!-- (ionChange)="segmentChanged($event)" scrollable -->
+  <ion-segment >
+    <ion-segment-button value="Titulada">
+      <ion-label>Titulada</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Complementaria">
+      <ion-label>Complementaria</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+<ion-searchbar animated (ionChange)="buscar($event)"></ion-searchbar>
+
+
+</ion-toolbar>
 <ion-content>
   <app-programs [courses]="courses"></app-programs>
 </ion-content>
-<ion-row >
+<!-- <ion-row >
   <ion-col size="4" offset="4" class="containerFilter">
     <ion-button (click)="openFilter()" style="--background: rgba(255,138,0,0.8)" expand="block"><ion-icon slot="start" name="search"></ion-icon >Filtro</ion-button>
   </ion-col>
-</ion-row>
+</ion-row> -->
 <app-menu></app-menu>
