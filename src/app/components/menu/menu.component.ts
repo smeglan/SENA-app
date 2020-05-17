@@ -19,6 +19,11 @@ export class MenuComponent implements OnInit {
     "icon": "people",
     "name": "Codigo QR",
     "redirectTo": "/admin"
+  },
+  {
+    "icon": "star",
+    "name": "Favoritos",
+    "redirectTo": "/favoritos"
   }
   ];
 

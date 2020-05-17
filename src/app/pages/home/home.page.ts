@@ -21,7 +21,7 @@ export class HomePage implements OnInit {
     private firebaseService: FirebaseService,
     private router: Router
   ) {
-    this.courses = this.firebaseService.getDataCourses();
+    // this.courses = this.firebaseService.getDataCourses();
   }
   ngOnInit() {
   }

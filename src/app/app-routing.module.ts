@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'slides', loadChildren: './pages/slides/slides.module#SlidesPageModule' },
   { path: 'ofertas',
     loadChildren: './pages/ofertas/ofertas.module#OfertasPageModule'
-  },
+  },  { path: 'favoritos', loadChildren: './pages/favoritos/favoritos.module#FavoritosPageModule' },
+
 
 
 
