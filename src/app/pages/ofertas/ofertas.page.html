@@ -21,7 +21,7 @@
         <ion-item-sliding *ngFor="let dato of (datos | async) | filtroSegmento: tipo:'tipo' | filtro: textoBuscar " >
           
           <ion-item >
-      
+                  
             <ion-avatar slot="start">
                         <img src="{{dato.img}}">
             </ion-avatar>   
@@ -35,21 +35,28 @@
                 {{ dato.url}}
               </h3>
             </ion-label>
+            
+            <div class="formacion-more">
+              <ion-button fill="clear" (click)="lanzarMenu(dato.title, dato.descripcion,dato.url,dato.id,dato.img)">
+              <ion-icon name="more" slot="icon-only" color="primary"></ion-icon>
+              </ion-button>
+            </div>
+            
       
           </ion-item>
       
       
-          <ion-item-options side="end"   >
+          <!-- <ion-item-options side="end"   >
                 <!-- <ion-item-option color="secondary" (click)="share( dato.url)">
                         <ion-icon slot="icon-only" name="share"></ion-icon>
-                </ion-item-option> -->
+                </ion-item-option> 
 
                  <ion-item-option  (click)="favorite(dato.title,dato.descripcion,dato.img,dato.id, dato.url)">
                     <ion-icon slot="icon-only" name="heart"></ion-icon>
                   </ion-item-option>
               
                 
-          </ion-item-options>
+          </ion-item-options> -->
 
         </ion-item-sliding>
         

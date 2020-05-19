@@ -1,9 +1,11 @@
+import { Formaciones } from 'src/app/interfaces/interfaces';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {  ToastController, IonList } from '@ionic/angular';
+import {  ToastController, IonList, ActionSheetController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { DataService } from 'src/app/services/data.service';
+import { DataLocalService } from 'src/app/services/data-local.service';
 
 @Component({
   selector: 'app-favoritos',
@@ -21,12 +23,13 @@ export class FavoritosPage implements OnInit {
   datos: any[] = [];
 
   title: any;
-
-  addFavorito: any[] ;
+  favorito: Formaciones;
+  addFavorito: Formaciones[] ;
 
 
   constructor(private dataService: DataService, private toastCtrl: ToastController,
-              public http: HttpClient, private storage: Storage, private socialSharing: SocialSharing) {
+              public http: HttpClient, private storage: Storage, private socialSharing: SocialSharing,
+              private actionSheetCtrl: ActionSheetController, private datalocalService: DataLocalService) {
                 this.cargarFavoritos();
               }
 
@@ -42,7 +45,7 @@ export class FavoritosPage implements OnInit {
   async presentToast( message: string) {
     const toast = await this.toastCtrl.create({
       message,
-      duration: 2000
+      duration: 3000
     });
     toast.present();
   }
@@ -62,26 +65,52 @@ export class FavoritosPage implements OnInit {
   }
 
   async borrar(par1, par2, par3, par4, par5) {
-       const  addFavorito = await this.storage.remove('favoritos');
-       this. addFavorito =  addFavorito || [];
-       return this. addFavorito;
-   }
-  //   //   // tslint:disable-next-line: align
-  //   //   console.log(par4);
-  //   }
+        this.addFavorito = this.addFavorito.filter( elm => elm.title !== par1);
+        this.datalocalService.guardarFormacion(this.addFavorito);
+        this.presentToast('Eliminado!');
+  }
 
-  // // async cargarFavoritos() {
-  // //   this.storage.get('favoritos')
-  // //   .then(data => {
-  // //     this.addFavorito = data;
-  // //     console.log(data);
-  // //   });
 
   async cargarFavoritos() {
 
     const  addFavorito = await this.storage.get('favoritos');
-    this. addFavorito =  addFavorito || [];
-    return this. addFavorito;
+    if ( addFavorito ) {
+    this.addFavorito =  addFavorito || [];
+    } else {
+      this.presentToast('No hay lista de favoritos');
+    }
+    return this.addFavorito;
+  }
+  async lanzarMenufav(num1, num2, num3, num4, num5) {
+    const actionSheet = await this.actionSheetCtrl.create({
+      // header: 'Add to favorites or share with your friends...',
+      buttons: [{
+        text: 'Compartir',
+        icon: 'share',
+        cssClass: 'action-dark',
+        handler: () => {
+          console.log('Share clicked');
+          this.socialSharing.share(num1, num2, '', num3);
+        }
+      }, {
+        text: 'Eliminar',
+        icon: 'trash',
+        cssClass: 'action-dark',
+        handler: () => {
+          console.log('Eliminar');
+          this.borrar(num1, num2, num3, num4, num5);
+        }
+      }, {
+        text: 'Cancelar',
+        icon: 'close',
+        cssClass: 'action-red',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
   }
 
 

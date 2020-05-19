@@ -9,26 +9,38 @@
 <ion-content>
 
  
-  <ion-list #lista >
-    <ion-item-sliding *ngFor="let dato of  addFavorito" >
+ <ion-list #lista >
       
+     <ion-item-sliding *ngFor="let dato of  addFavorito | filtroSegmento: tipo:'tipo' | filtro: textoBuscar " >
+      
+      <div *ngIf=""></div>
       <ion-item >
-  
+                  
         <ion-avatar slot="start">
                     <img src="{{dato.img}}">
         </ion-avatar>   
         <ion-label>
           
-          <h3>{{ dato.title }}</h3>
+          <h2>{{ dato.title }}</h2>
           <p>
             {{ dato.descripcion}}
           </p>
+          <h3>
+            {{ dato.url}}
+          </h3>
         </ion-label>
+        
+        <div class="formacion-more">
+          <ion-button fill="clear" (click)="lanzarMenufav(dato.title, dato.descripcion,dato.url,dato.id,dato.img)">
+          <ion-icon name="more" slot="icon-only" color="primary"></ion-icon>
+          </ion-button>
+        </div>
+        
   
       </ion-item>
 
 
-      <ion-item-options side="end"   >
+      <!-- <ion-item-options side="end"   >
         <ion-item-option color="secondary" (click)="share(dato.url)">
           <ion-icon slot="icon-only" name="share"></ion-icon>
         </ion-item-option>
@@ -39,9 +51,9 @@
 
         
       
-  </ion-item-options>
-
-    </ion-item-sliding>
+      </ion-item-options> -->
+ 
+     </ion-item-sliding>
   </ion-list>
 
 

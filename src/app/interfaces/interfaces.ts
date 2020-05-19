@@ -17,3 +17,11 @@ export interface ComponentMenu {
     name: string;
     redirectTo: string;
 }
+
+export interface Formaciones {
+  descripcion: string;
+  id: number;
+  img: string;
+  title: string;
+  url: string;
+}

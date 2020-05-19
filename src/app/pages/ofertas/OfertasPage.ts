@@ -1,16 +1,20 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSegment, IonList, ToastController } from '@ionic/angular';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { IonSegment, IonList, ToastController, ActionSheetController } from '@ionic/angular';
 import { DataService } from '../../services/data.service';
 import { Observable } from 'rxjs';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
+import { DataLocalService } from 'src/app/services/data-local.service';
+import { Formaciones } from 'src/app/interfaces/interfaces';
 @Component({
   selector: 'app-ofertas',
   templateUrl: './ofertas.page.html',
   styleUrls: ['./ofertas.page.scss'],
 })
 export class OfertasPage implements OnInit {
+
+  @Input() formaciones: Formaciones;
   @ViewChild(IonSegment, { static: true })
   segment: IonSegment;
   @ViewChild('lista', { static: false })
@@ -19,10 +23,11 @@ export class OfertasPage implements OnInit {
   tipo = '';
   datos: Observable<any>;
   datos1: any[] = [];
-  addFavorito = [];
+  addFavorito: Formaciones[] = [];
 
   constructor(private dataService: DataService, private toastCtrl: ToastController,
-              private socialSharing: SocialSharing, private storage: Storage, public http: HttpClient) { }
+              private socialSharing: SocialSharing, private storage: Storage, public http: HttpClient,
+              private datalocalService: DataLocalService, private actionSheetCtrl: ActionSheetController) { }
   ngOnInit() {
     this.segment.value = 'Titulada';
     this.dataService.getDatos().subscribe(datos                 => {
@@ -73,7 +78,54 @@ export class OfertasPage implements OnInit {
       id: par4,
       url: par5,
     });
-    this.storage.set('favoritos', this.addFavorito);
+    // this.datalocalService.guardarFormacion(this.addFavorito);
+    // this.storage.set('favoritos', this.addFavorito);
     this.presentToast('Agregago a Favoritos');
+  }
+
+  async lanzarMenu(num1, num2, num3, num4, num5) {
+    const actionSheet = await this.actionSheetCtrl.create({
+      // header: 'Add to favorites or share with your friends...',
+      buttons: [{
+        text: 'Compartir',
+        icon: 'share',
+        cssClass: 'action-dark',
+        handler: () => {
+          console.log('Share clicked');
+          this.socialSharing.share(num1, num2, '', num3);
+        }
+      }, {
+        text: 'Favorito',
+        icon: 'star',
+        cssClass: 'action-dark',
+        handler: () => {
+          console.log('favorito');
+          const existe = this.addFavorito.find( forma => forma.title === num1);
+          if (!existe) {
+          this.addFavorito.unshift({
+            title: num1,
+            descripcion: num2,
+            img: num5,
+            id: num4,
+            url: num3,
+          });
+          this.datalocalService.guardarFormacion(this.addFavorito);
+          // this.storage.set('favoritos', this.addFavorito);
+          this.presentToast('Agregago a Favoritos');
+        } else {
+          this.presentToast('Ya se encuentra en favoritos');
+        }
+        }
+      }, {
+        text: 'Cancelar',
+        icon: 'close',
+        cssClass: 'action-red',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
   }
 }
