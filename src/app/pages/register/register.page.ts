@@ -1,3 +1,4 @@
+import { DataService } from 'src/app/services/data.service';
 import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,6 +11,9 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  paisExpedicion = '';
+  fechaExpedicion = '';
+
   avatars = [
     {
       img: 'sena.png',
@@ -45,9 +49,13 @@ export class RegisterPage implements OnInit {
     },
 ];
   user: User = new User('', '');
-  constructor(private authSvc: AuthService, private router: Router) { }
+  datos: any[] = [];
+  constructor(private dataService: DataService, private authSvc: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.dataService.getpaises().subscribe( datos => {
+      this.datos = datos;
+    });
   }
 
   async onRegister(fregister: NgForm) {

@@ -22,7 +22,10 @@ const routes: Routes = [
   { path: 'slides', loadChildren: './pages/slides/slides.module#SlidesPageModule' },
   { path: 'ofertas',
     loadChildren: './pages/ofertas/ofertas.module#OfertasPageModule'
-  },  { path: 'favoritos', loadChildren: './pages/favoritos/favoritos.module#FavoritosPageModule' },
+  },
+  { path: 'favoritos', loadChildren: './pages/favoritos/favoritos.module#FavoritosPageModule' },
+  { path: 'mapa', loadChildren: './pages/mapa/mapa.module#MapaPageModule' },
+  { path: 'mapageo/:geo', loadChildren: './pages/mapageo/mapageo.module#MapageoPageModule' },
 
 
 

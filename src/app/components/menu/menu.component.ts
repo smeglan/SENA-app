@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
     "redirectTo": "/ofertas"
   },
   {
-    "icon": "people",
+    "icon": "qr-scanner",
     "name": "Codigo QR",
     "redirectTo": "/admin"
   },
@@ -24,6 +24,16 @@ export class MenuComponent implements OnInit {
     "icon": "star",
     "name": "Favoritos",
     "redirectTo": "/favoritos"
+  },
+  {
+    "icon": "book",
+    "name": "Historias",
+    "redirectTo": "/mapa"
+  },
+  {
+    "icon": "map",
+    "name": "Mapa",
+    "redirectTo": "/mapageo/geo:5.031389,-75.451262"
   }
   ];
 

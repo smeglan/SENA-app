@@ -6,45 +6,90 @@
 </ion-header>
 
 <ion-content class="padding">
-<ion-slide>
 
       
-  <ion-grid fixed>
+  <ion-grid >
 
-        <ion-row>
-        <ion-col>
-            <ion-slides>
-            <ion-slide *ngFor="let avatar of avatars">
-                <ion-img class="pick-avatar" 
-                        src="/assets/avatars/{{ avatar.img }}"></ion-img>
-            </ion-slide>
-            </ion-slides>
-        </ion-col>
-        </ion-row>
-    
+            <ion-row>
+                <ion-col size="6" offset="3">
+                  <ion-img src="assets/logos/logo-sena.png"></ion-img>
+                </ion-col>
+              </ion-row>
+    <ion-slides>
+        <ion-slide>
+            <ion-row>
+                <ion-col>
+                    <div id="header">
+                        <h1>     Documento de Identidad</h1> Paso 1/2
+                    </div>
+                    <ion-list>
+                        
+                        <ion-item lines="full"  >
+                            <ion-label position="floating" >Tipo de Documento</ion-label>
+                            <ion-select  name="tipocedula"  > 
+                              <ion-select-option value="cedula" >Cédula de Ciudadanía</ion-select-option>
+                              <ion-select-option value="tarjeta">Tarjeta de Identidad</ion-select-option>
+                              <ion-select-option value="documento">NIT</ion-select-option>
+                            </ion-select>
+                          </ion-item>
+                          <ion-item lines="full" >
+                            <ion-label position="floating">Número de documento</ion-label>
+                            <ion-input type="number" name="numeroDocumento" maxlength="10" required ></ion-input>
+                          </ion-item>
+                          <ion-item lines="full" >
+                            <ion-label position="floating">País de Expedición </ion-label>
+                            <ion-select [(ngModel)]="paisExpedicion"  name="paisExpedicion">
+                              <ion-select-option  *ngFor="let dato of datos" [value]="dato">{{dato}}</ion-select-option>
+                            </ion-select>
+                          </ion-item>
+                          <ion-item lines="full">
+                            <ion-label position="floating">Fecha de expedición</ion-label>
+                             <ion-datetime  max="2030" min="1960" display-format="DD/MMM/YYYY" [(ngModel)]="fechaExpedicion" name="fechaExpedicion"></ion-datetime> 
+                         </ion-item>
+                         <ion-item>
+                            <ion-icon name="arrow-forward" md="md-arrow-forward" color="primary"></ion-icon>
+                        </ion-item>
+                   </ion-list>
+                </ion-col>
+            </ion-row>
+            
+        </ion-slide>
+        <ion-slide>
         <form  (ngSubmit) = "onRegister(fregister)" #fregister="ngForm">
             <ion-row>
                 <ion-col>
-                    
+                    <div id="header" >
+                        <h1>     Datos de Identificacion</h1> Paso 2/2
+                    </div>
                     <ion-list>
-                        
-                        <ion-item>
-                        <ion-label>Email : </ion-label>
+                                               
+                        <ion-item lines="full">
+                        <ion-label position="floating">Email : </ion-label>
                         <ion-input name="email" 
                                     type="email"
                                     [(ngModel)]="user.email"
                                     required></ion-input> 
                         </ion-item>
 
-                        <ion-item>
-                        <ion-label>Nombre : </ion-label>
+                        <ion-item lines="full">
+                        <ion-label position="floating">Nombre : </ion-label>
                         <ion-input name="nombre"
                                     type="text"
                                     required></ion-input>
                         </ion-item>
-
-                        <ion-item>
-                        <ion-label>Password : </ion-label>
+                        <ion-item lines="full"  >
+                            <ion-label position="floating" >Genero</ion-label>
+                            <ion-select  name="genero"  > 
+                              <ion-select-option value="masculino" >Masculino</ion-select-option>
+                              <ion-select-option value="femenino">Femenino</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label position="floating">Fecha de Nacimiento</ion-label>
+                             <ion-datetime  max="2030" min="1960" display-format="DD/MMM/YYYY" [(ngModel)]="fechaExpedicion" name="fechaExpedicion"></ion-datetime> 
+                         </ion-item>
+                        <ion-item lines="full">
+                        <ion-label position="floating">Password : </ion-label>
                         <ion-input name="password"
                                     type="password"
                                     [(ngModel)]="user.password"
@@ -66,8 +111,10 @@
         </ion-row>
         
         </form>
+    </ion-slide>
+
+    </ion-slides>
     </ion-grid>
-  </ion-slide>
   
 </ion-content>
 

@@ -1,5 +1,15 @@
 <app-header></app-header>
 <app-menu></app-menu>
 <ion-content>
-  <ion-button size="large" href="/">LogOut</ion-button>
+  <ion-slides [options]="swiperOpts">
+    <ion-slide>
+      <ion-button expand="full"
+                  fill="outline"
+                  size="large"
+                  shape="round"
+                  (click)="scan()">
+      SCANCODE
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

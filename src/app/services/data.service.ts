@@ -18,11 +18,6 @@ export class DataService {
   getDatos1() {
     return this.http.get<any[]>('https://appsena-622d5.firebaseio.com/programasFormacion.json');
   }
-
-  getEventos() {
-    return this.http.get<any[]>('https://appsena-622d5.firebaseio.com/eventos.json');
-  }
-
   getpaises() {
     return this.http.get<any[]>('https://appsena-622d5.firebaseio.com/paises.json');
   }

@@ -16,6 +16,9 @@ import { ComponentsModule } from './components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 
 
 @NgModule({
@@ -39,6 +42,8 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/fi
     StatusBar,
     SplashScreen,
     SocialSharing,
+    BarcodeScanner,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {provide: FirestoreSettingsToken, useValue: {}}
 
