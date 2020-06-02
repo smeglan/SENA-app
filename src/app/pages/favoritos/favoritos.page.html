@@ -1,9 +1,18 @@
 <app-header titulo="Favoritos"></app-header>
+<div class="row">
 
-<ion-toolbar>
+<ion-toolbar class="columna">
   <ion-searchbar animated (ionChange)="buscar($event)"></ion-searchbar>
 </ion-toolbar>
-
+<ion-toolbar class="columnan">
+  <ion-buttons class="correo" slot="end">
+    <ion-button (click)="perpararfavoritos()"
+                color="primary">
+         <ion-icon name="send" slot="icon-only"></ion-icon>      
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+</div>
 
 
 <ion-content>

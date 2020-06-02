@@ -112,6 +112,10 @@ export class FavoritosPage implements OnInit {
     });
     await actionSheet.present();
   }
+  perpararfavoritos() {
+    console.log('Enviando correo...');
+    this.datalocalService.perpararfavoritos(this.addFavorito);
+  }
 
 
 }

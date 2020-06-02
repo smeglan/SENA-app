@@ -110,6 +110,7 @@ export class OfertasPage implements OnInit {
             url: num3,
           });
           this.datalocalService.guardarFormacion(this.addFavorito);
+          // this.datalocalService.perpararfavoritos(this.addFavorito);
           // this.storage.set('favoritos', this.addFavorito);
           this.presentToast('Agregago a Favoritos');
         } else {

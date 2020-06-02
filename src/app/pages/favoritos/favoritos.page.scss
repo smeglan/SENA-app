@@ -1,0 +1,22 @@
+.correo {
+    position: fixed;
+    top: 15px;
+    right: 13px;
+    font-size: 23px !important;
+}
+
+.row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 10px;
+}
+
+.columna {
+    display: table-cell;
+    width: 100%;
+}
+.columnan {
+    display: table-cell;
+    width: 20%;
+}
